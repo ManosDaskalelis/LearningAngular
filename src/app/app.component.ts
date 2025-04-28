@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { UsersComponent } from "./users/users.component";
+import { DUMMY_USERS } from './users/dummy-users';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,5 @@ import { UsersComponent } from "./users/users.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'UdemyAngular';
+  users = DUMMY_USERS;
 }

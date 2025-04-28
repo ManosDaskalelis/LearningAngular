@@ -1,9 +1,11 @@
 <app-header />
 
 <main>
-    <ul id="users">
+    <ul class="flex flex-column" id="users">
+        @for (user of users; track $index) {
         <li>
-            <app-users />
+            <app-users [avatar]="user.avatar" [name]="user.name" [id]="user.id" />
         </li>
+        }
     </ul>
 </main>
