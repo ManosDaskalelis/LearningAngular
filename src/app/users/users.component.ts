@@ -11,12 +11,12 @@ import { Component, Input, input} from '@angular/core';
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
-  // @Input({required: true}) avatar!: string;
-  // @Input({required: true}) name!: string;
-  // @Input({required: true}) id!: string;
-  avatar = input.required<string>();
-  name = input.required<string>();
-  id = input.required<string>();
+  @Input({required: true}) avatar!: string;
+  @Input({required: true}) name!: string;
+  @Input({required: true}) id!: string;
+  // avatar = input.required<string>();
+  // name = input.required<string>();
+  // id = input.required<string>();
   
   // selecterdUser = signal(DUMMY_USERS[randomIndex]);
   // imagePath = computed(() => 'assets/users/' + this.selecterdUser().avatar);
