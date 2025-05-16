@@ -1,4 +1,4 @@
-import { Component, Input, input} from '@angular/core';
+import { Component, EventEmitter, Input, input, output, Output} from '@angular/core';
 // import { User } from '../models/user.model';
 // import { DUMMY_USERS } from './dummy-users';
 
@@ -14,6 +14,8 @@ export class UsersComponent {
   @Input({required: true}) avatar!: string;
   @Input({required: true}) name!: string;
   @Input({required: true}) id!: string;
+  // @Output() select = new EventEmitter<string>();
+  select = output<string>();
   // avatar = input.required<string>();
   // name = input.required<string>();
   // id = input.required<string>();
@@ -27,10 +29,14 @@ export class UsersComponent {
       return 'assets/users/' + this.avatar;
     }
 
-  onSelectedUser() {
+  // onSelectedUser() {
     // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
     // this.selecterdUser.set(DUMMY_USERS[randomIndex]);
     // console.log('Selected user:', this.selecterdUser());
 
+  // }
+
+  onSelectUser() {
+    this.select.emit(this.id);
   }
-} 
+}   

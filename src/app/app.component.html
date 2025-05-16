@@ -3,9 +3,9 @@
     <ul id="users">
         @for (user of users; track $index) {
         <li>
-            <app-users [avatar]="user.avatar" [name]="user.name" [id]="user.id" />
+            <app-users [avatar]="user.avatar" [name]="user.name" [id]="user.id" (select)="onSelectUser($event)" />
         </li>
         }
     </ul>
-    
+    <app-tasks [name]="selectedUser.name"/>
 </main>
