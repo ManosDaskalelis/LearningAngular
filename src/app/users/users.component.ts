@@ -28,10 +28,10 @@ export class UsersComponent {
   // @Input({required: true}) avatar!: string;
   // @Input({required: true}) name!: string;
   // @Input({required: true}) id!: string;
-  // @Output() select = new EventEmitter<string>();
   // Avatar = input.required<string>();
   // Name = input.required<string>();
   // Id = input.required<string>();
+  // @Output() select = new EventEmitter<string>();
 
   // selecterdUser = signal(DUMMY_USERS[randomIndex]);
   // imagePath = computed(() => 'assets/users/' + this.selecterdUser().avatar); signals

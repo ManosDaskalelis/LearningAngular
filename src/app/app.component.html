@@ -6,7 +6,16 @@
             <app-users [user]="user" (select)="onSelectUser($event)" />
         </li>
         }
+
+        <!-- <li **ngFor="let user of users">
+            <app-users [user]="user" (select)="onSelectUser($event)" />
+        </li> -->
     </ul>
+    <!-- <app-tasks **ngIf="selectedUser; else #fallback" [name]="selectedUser!.name"/>
+
+    <ng-template #fallback>
+        <p>Select a user to see their tasks.</p>
+    </ng-template> -->
 
     @if (selectedUser) {
     <app-tasks [name]="selectedUser.name" />
