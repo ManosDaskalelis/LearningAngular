@@ -1,5 +1,6 @@
 import { Component, Input, output } from '@angular/core';
 
+
 @Component({
   selector: 'app-tasks',
   imports: [],
@@ -8,6 +9,7 @@ import { Component, Input, output } from '@angular/core';
 })
 export class TasksComponent {
   @Input({required: true}) name: string | undefined;
+
 }
 
 
