@@ -9,6 +9,11 @@ import { Component, Input, output } from '@angular/core';
 })
 export class TasksComponent {
   @Input({required: true}) name: string | undefined;
+  isShown: boolean = false;
+  
+  onClick() {
+    return this.isShown = this.isShown ? false : true; 
+  }
 
 }
 
