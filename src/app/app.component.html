@@ -18,10 +18,8 @@
     </ng-template> -->
 
     @if (selectedUser) {
-    <app-tasks [name]="selectedUser.name" />
+    <app-tasks [name]="selectedUser.name" [userId]="selectedUser.id"/>
     }@else {
     <p>Select a user to see their tasks.</p>
     }
 </main>
-
-<app-modal />

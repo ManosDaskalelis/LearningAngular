@@ -5,11 +5,17 @@
             <button>Add Task</button>
         </menu>
     </header>
-   
 
     <ul>
-        <li>
-            
-        </li>
+        @for (task of tasks; track task.id) {
+            @if (userId == task.userId) {
+                <li>
+                    <app-task [title]="task.title"
+                              [dueDate]="task.dueDate"
+                              [summary]="task.summary"
+                              [id]="task.id" />
+                </li>
+            }
+        }
     </ul>
 </section>
