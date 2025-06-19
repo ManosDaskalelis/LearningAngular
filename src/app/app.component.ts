@@ -8,7 +8,7 @@ import { ModalComponent } from "./modal/modal.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, UsersComponent, TasksComponent],
+  imports: [RouterOutlet, HeaderComponent, UsersComponent, TasksComponent, ModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
