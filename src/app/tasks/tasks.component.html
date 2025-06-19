@@ -10,12 +10,12 @@
         @for (task of tasks; track task.id) {
             @if (userId == task.userId) {
                 <li>
-                    <app-task [title]="task.title"
-                              [dueDate]="task.dueDate"
-                              [summary]="task.summary"
-                              [id]="task.id" />
+                    <app-task [task]="task" (complete)="onCompleteTask($event)"/>
                 </li>
             }
         }
+        <!-- @for (task of selectedUserTasks; track task.id) {
+            //
+        } -->
     </ul>
 </section>
