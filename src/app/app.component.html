@@ -3,7 +3,7 @@
     <ul id="users">
         @for (user of users; track user.id) {
         <li>
-            <app-users [user]="user" (select)="onSelectUser($event)" [selected]="user.id === selectedUserId"/>
+            <app-users [user]="user" (select)="onSelectUser($event)" [selected]="user.id === selectedUserId" />
         </li>
         }
 
@@ -11,7 +11,7 @@
             <app-users [user]="user" (select)="onSelectUser($event)" />
         </li> -->
     </ul>
-    
+
     <!-- <app-tasks **ngIf="selectedUser; else #fallback" [name]="selectedUser!.name"/>
 
     <ng-template #fallback>
@@ -24,8 +24,3 @@
     <p>Select a user to see their tasks.</p>
     }
 </main>
-
-<div style="display: flex; justify-content: center;">
-    <app-modal />
-
-</div>

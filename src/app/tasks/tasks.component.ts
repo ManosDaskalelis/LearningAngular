@@ -1,17 +1,19 @@
-import { Component, Input, output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { TaskComponent } from "../task/task.component";
 import { Task } from '../models/task.model';
+import { ModalComponent } from "../modal/modal.component";
 
 
 @Component({
   selector: 'app-tasks',
-  imports: [TaskComponent],
+  imports: [TaskComponent, ModalComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
   @Input({required: true}) name: string | undefined;
   @Input({required: true}) userId: string | undefined;
+  isModalVisible:boolean = false;
   
   tasks: Task[] = [
     {
@@ -39,12 +41,23 @@ export class TasksComponent {
     }
   ];
 
-  // get selectedUserTasks() {
-  //   return this.tasks.filter((task) => task.userId === this.userId);
-  // }
+  get selectedUserTasks() {
+    return this.tasks.filter((task) => task.userId === this.userId);
+  }
 
   onCompleteTask(taskId: string) {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
+  }
+
+  onShowModal() {
+    this.isModalVisible = true;
+    console.log(this.isModalVisible);
+  }
+
+  onCloseModal(isModalVisible: boolean) {
+    this.isModalVisible = false;
+    console.log(this.isModalVisible);
+    
   }
 }
 
