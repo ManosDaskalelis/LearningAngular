@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import { Task } from '../models/task.model';
+import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NewTask } from '../models/task.model';
 
 @Component({
   selector: 'app-modal',
@@ -10,20 +10,34 @@ import { Task } from '../models/task.model';
 })
 export class ModalComponent {
   @Output() close = new EventEmitter<boolean>();
-  enteredTitle!: Task["title"];
-  enteredSummary!:  Task["summary"];
-  enteredDueDate!: Task["dueDate"];
-  
+  @Output() newTask = new EventEmitter<NewTask>();
+  // @Output() add = new EventEmitter<{title: string; summary: string; date: string;}>();
+  enteredTitle!: '';
+  enteredSummary!: '';
+  enteredDueDate!: '';
+  // enteredTitle = signal('');
+  // enteredSummary = signal('');
+  // enteredDueDate = signal('');
+
+
   onCloseButtonClick() {
     this.close.emit(false);
-    console.log(this.enteredTitle);
-    console.log(this.enteredDueDate);
-    console.log(this.enteredSummary);
-    
   }
 
-  onLoseFocus(){
+  onLoseFocus() {
     this.close.emit(false);
   }
 
+  onSubmition() {
+    const task: NewTask = {
+      title: this.enteredTitle,
+      summary: this.enteredSummary,
+      dueDate: this.enteredDueDate,
+    };
+    this.newTask.emit(task);
+    //this.add.emit({
+    //   title: this.enteredTitle(),
+    //   summary: this.enteredSummary(),
+    //   date: this.enteredDueDate(),})
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { TaskComponent } from "../task/task.component";
-import { Task } from '../models/task.model';
+import { NewTask, Task } from '../models/task.model';
 import { ModalComponent } from "../modal/modal.component";
 
 
@@ -11,10 +11,10 @@ import { ModalComponent } from "../modal/modal.component";
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  @Input({required: true}) name: string | undefined;
-  @Input({required: true}) userId: string | undefined;
-  isModalVisible:boolean = false;
-  
+  @Input({ required: true }) name: string | undefined;
+  @Input({ required: true }) userId: string | undefined;
+  isModalVisible: boolean = false;
+
   tasks: Task[] = [
     {
       id: 't1',
@@ -51,12 +51,23 @@ export class TasksComponent {
 
   onShowModal() {
     this.isModalVisible = true;
-    console.log(this.isModalVisible);
   }
 
   onCloseModal(isModalVisible: boolean) {
     this.isModalVisible = false;
-    console.log(this.isModalVisible);
+  }
+
+  onFormSubmit(task: NewTask) {
+    const newTask: Task = {
+      id: new Date().getTime().toString(),
+      userId: this.userId || '',
+      title: task.title,
+      summary: task.summary,
+      dueDate: task.dueDate,
+    }
+    this.tasks.push(newTask);
+    this.isModalVisible = false;
+    console.log(newTask.id);
     
   }
 }
