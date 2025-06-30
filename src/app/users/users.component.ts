@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, input, output, Output } from '@angular/core';
+import { CardComponent } from "../shared/card/card.component";
 // import { User } from '../models/user.model';
 // import { DUMMY_USERS } from './dummy-users';
 
@@ -18,7 +19,7 @@ interface User {
 
 @Component({
   selector: 'app-users',
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
