@@ -14,15 +14,14 @@ export class TasksComponent {
   @Input({ required: true }) name!: string;
   @Input({ required: true }) userId!: string;
   isModalVisible: boolean = false;
-  private tasksService: TasksService = new TasksService();
+
+  constructor(private tasksService: TasksService) {}
 
   get selectedUserTasks() {
     return this.tasksService.getUserTasks(this.userId);
   }
 
-  onCompleteTask(taskId: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== taskId);
-  }
+  onCompleteTask(taskId: string) {}
 
   onShowModal() {
     this.isModalVisible = true;
@@ -33,17 +32,8 @@ export class TasksComponent {
   }
 
   onFormSubmit(task: NewTask) {
-    const newTask: Task = {
-      id: new Date().getTime().toString(),
-      userId: this.userId || '',
-      title: task.title,
-      summary: task.summary,
-      dueDate: task.dueDate,
-    }
-    this.tasks.unshift(newTask);
+    this.tasksService.addTasks(task, this.userId);
     this.isModalVisible = false;
-    console.log(newTask.id);
-    
   }
 }
 
