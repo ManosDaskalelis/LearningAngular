@@ -21,8 +21,6 @@ export class TasksComponent {
     return this.tasksService.getUserTasks(this.userId);
   }
 
-  onCompleteTask(taskId: string) {}
-
   onShowModal() {
     this.isModalVisible = true;
   }
@@ -32,7 +30,6 @@ export class TasksComponent {
   }
 
   onFormSubmit(task: NewTask) {
-    this.tasksService.addTasks(task, this.userId);
     this.isModalVisible = false;
   }
 }

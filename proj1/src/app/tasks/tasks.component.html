@@ -1,5 +1,5 @@
 @if (isModalVisible) {
-<app-modal (close)="onCloseModal($event)" (newTask)="onFormSubmit($event)"/>
+<app-modal [userid]="userId" (close)="onCloseModal($event)"/>
 }
 
 <section id="tasks">
@@ -20,7 +20,7 @@
         <!-- } -->
         @for (task of selectedUserTasks; track task.id) {
         <li>
-            <app-task [task]="task" (complete)="onCompleteTask($event)" />
+            <app-task [task]="task" />
         </li>
     }
     </ul>
