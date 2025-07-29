@@ -19,6 +19,7 @@ interface User {
 
 @Component({
   selector: 'app-users',
+  standalone: true,
   imports: [CardComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'

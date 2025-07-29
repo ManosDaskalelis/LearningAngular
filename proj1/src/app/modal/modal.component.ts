@@ -5,6 +5,7 @@ import { TasksService } from '../tasks/tasks.service';
 
 @Component({
   selector: 'app-modal',
+  standalone: true,
   imports: [FormsModule],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.css'
