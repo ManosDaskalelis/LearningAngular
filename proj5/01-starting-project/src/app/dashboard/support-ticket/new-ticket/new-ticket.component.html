@@ -1,14 +1,15 @@
 <form>
-    <p>
-        <label for="title">Title</label>
+    <app-control labelText="Title">
+        <!-- <label for="title">Title</label> -->
         <input name="title" id="title">
-    </p>
-    <p>
-        <label for="request">Request</label>
+    </app-control>
+    <app-control labelText="Request">
+        <!-- <label for="request">Request</label> -->
         <textarea name="request" id="request" rows="3"></textarea>
-    </p>
+    </app-control>
     <button appButton>
         Submit
         <span ngProjectAs="icon">↦</span>
     </button>
 </form>
+<input type="password" placeholder="Password">

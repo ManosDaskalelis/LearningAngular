@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './control.component.html',
   styleUrl: './control.component.css'
 })
-export class ControlComponent {
 
+export class ControlComponent {
+  labelText = input.required<string>();
 }
+  
