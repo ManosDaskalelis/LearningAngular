@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, DestroyRef, effect, inject, OnDestroy, OnInit, signal } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -13,7 +13,11 @@ export class ServerStatusComponent implements OnInit {
   // private interval?: ReturnType<typeof setInterval>;
   private destroyRef = inject(DestroyRef)
 
-  constructor() { }
+  constructor() {
+    effect(() => {
+      console.log(this.currentStatus());
+    });
+  }
 
   ngOnInit() {
     const interval = setInterval(() => {
