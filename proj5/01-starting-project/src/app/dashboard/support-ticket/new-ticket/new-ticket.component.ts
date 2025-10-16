@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, viewChild, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, output, viewChild, ViewChild } from '@angular/core';
 import { ControlComponent } from "../../../shared/control/control.component";
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { FormsModule } from '@angular/forms';
@@ -11,9 +11,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-ticket.component.css',
 })
 export class NewTicketComponent implements OnInit, AfterViewInit {
-    // @ViewChild('form') private form?: ElementRef<HTMLFormElement>; 
+  // @ViewChild('form') private form?: ElementRef<HTMLFormElement>; 
   // private form = viewChild<ElementRef<HTMLFormElement>>('form');
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+  add = output<{ title: string; text: string; }>();
 
 
   // onSubmit(titleElement: HTMLInputElement) {
@@ -21,17 +22,16 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
   // }
 
   onSubmit(title: string, ticketText: string) {
-    console.log(title);
-    console.log(ticketText);
+    this.add.emit({ title: title, text: ticketText })
+    this.form().nativeElement.reset(); 
     // this.form.nativeElement.reset(); ======> non signal
-    this.form().nativeElement.reset();
   }
 
   ngOnInit() {
     console.log("on init");
     // console.log(this.form?.nativeElement); ==> not visible yet 
     console.log(this.form().nativeElement); //==> ok
-    
+
   }
 
   ngAfterViewInit() {
