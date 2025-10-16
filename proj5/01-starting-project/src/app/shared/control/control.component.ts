@@ -25,7 +25,6 @@ export class ControlComponent {
   onClick() {
     alert(`You clicked on ${this.labelText}`);
     console.log(this.element);
-    
   }
 
 }
