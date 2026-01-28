@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, output, viewChild, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, output, viewChild, ViewChild } from '@angular/core';
 import { ControlComponent } from "../../../shared/control/control.component";
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { FormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class NewTicketComponent implements OnInit, AfterViewInit {
   // @ViewChild('form') private form?: ElementRef<HTMLFormElement>; 
   // private form = viewChild<ElementRef<HTMLFormElement>>('form');
+  // @Output() add = new EventEmitter();
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
   add = output<{ title: string; text: string; }>();
 
@@ -27,17 +28,17 @@ export class NewTicketComponent implements OnInit, AfterViewInit {
     // this.form.nativeElement.reset(); ======> non signal
   }
 
-  ngOnInit() {
-    console.log("on init");
-    // console.log(this.form?.nativeElement); ==> not visible yet 
-    console.log(this.form().nativeElement); //==> ok
-
-  }
-
   ngAfterViewInit() {
     console.log("after view init");
     console.log(this.form().nativeElement);
 
+
+  }
+
+  ngOnInit() {
+    console.log("on init");
+    // console.log(this.form?.nativeElement); ==> not visible yet 
+    console.log(this.form().nativeElement); //==> ok
 
   }
 }
