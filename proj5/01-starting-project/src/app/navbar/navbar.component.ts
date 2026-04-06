@@ -9,5 +9,4 @@ import { ButtonComponent } from '../shared/button/button.component';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent { 
-
 }
